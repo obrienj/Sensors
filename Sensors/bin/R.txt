@@ -248,7 +248,8 @@ int drawable abc_textfield_searchview_holo_dark 0x7f020053
 int drawable abc_textfield_searchview_holo_light 0x7f020054
 int drawable abc_textfield_searchview_right_holo_dark 0x7f020055
 int drawable abc_textfield_searchview_right_holo_light 0x7f020056
-int drawable ic_launcher 0x7f020057
+int drawable arrow 0x7f020057
+int drawable ic_launcher 0x7f020058
 int id accelerometer_not_available 0x7f05003c
 int id accelerometer_unit_x 0x7f05003e
 int id accelerometer_unit_y 0x7f050040
@@ -267,12 +268,13 @@ int id action_context_bar 0x7f05001d
 int id action_menu_divider 0x7f050016
 int id action_menu_presenter 0x7f050017
 int id action_mode_close_button 0x7f050024
-int id action_settings 0x7f050083
+int id action_settings 0x7f050084
 int id activity_chooser_view_content 0x7f050025
 int id always 0x7f05000b
 int id ambient_light_description 0x7f05004b
 int id ambient_light_not_available 0x7f05004c
 int id ambient_light_title 0x7f05004a
+int id arrow_view 0x7f050083
 int id beginning 0x7f050011
 int id checkbox 0x7f05002d
 int id collapseActionView 0x7f05000d

@@ -24,15 +24,16 @@ public class MainActivity extends Activity implements SensorEventListener {
 					ambientTemperature;
 	
 	// Create objects of each sensor class
-	private Accelerometer 		accelerometerObj;
-	private LinearAcceleration 	linearAccelerationObj;
-	private AmbientLight 		ambientLightObj;
-	private Gyroscope			gyroscopeObj;
-	private GyroscopeUncalibrated	gyroscopeUncalibObj;
-	private MagneticField 		magneticFieldObj;
+	private Accelerometer 				accelerometerObj;
+	private LinearAcceleration 			linearAccelerationObj;
+	private AmbientLight 				ambientLightObj;
+//	private Compass						compassObj;
+	private Gyroscope					gyroscopeObj;
+	private GyroscopeUncalibrated		gyroscopeUncalibObj;
+	private MagneticField 				magneticFieldObj;
 	private MagneticFieldUncalibrated	magneticFieldUncalibObj;
-	private Pressure			pressureObj;
-	private AmbientTemperature	ambientTemperatureObj;
+	private Pressure					pressureObj;
+	private AmbientTemperature			ambientTemperatureObj;
 	
 	// Each sensor's last update time 
 	private long	mLastUpdateAccel,
@@ -71,6 +72,9 @@ public class MainActivity extends Activity implements SensorEventListener {
 		// Ambient light
 		ambientLightObj = new AmbientLight(this, this);
 		ambientLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+		
+		// Compass
+	//	compassObj = new Compass(this, this);
 		
 		// Gyroscope
 		gyroscopeObj = new Gyroscope(this, this);
@@ -111,6 +115,8 @@ public class MainActivity extends Activity implements SensorEventListener {
 			if (actualTime - mLastUpdateAccel > UPDATE_THRESHOLD) {
 				mLastUpdateAccel = actualTime;
 				accelerometerObj.changeAccelerometerValues(event);	
+				
+			//	compassObj.changeCompassValues(event);
 			}
 		}
 		
@@ -155,7 +161,9 @@ public class MainActivity extends Activity implements SensorEventListener {
 
 			if (actualTime - mLastUpdateMagneticField > UPDATE_THRESHOLD) {
 				mLastUpdateMagneticField = actualTime;
-				magneticFieldObj.changeMagneticFieldValues(event);	
+				magneticFieldObj.changeMagneticFieldValues(event);
+				
+	//			compassObj.changeCompassValues(event);
 			}
 		}
 		
@@ -314,6 +322,7 @@ public class MainActivity extends Activity implements SensorEventListener {
 		accelerometerObj.unregister();
 		linearAccelerationObj.unregister();
 		ambientLightObj.unregister();
+//		compassObj.unregister();
 		gyroscopeObj.unregister();
 		gyroscopeUncalibObj.unregister();
 		magneticFieldObj.unregister();

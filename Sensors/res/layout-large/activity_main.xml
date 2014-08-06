@@ -259,6 +259,25 @@
 	    android:background="#575757" />
 	
 <!-- ****************************************************************************************** -->
+
+<!-- Compass -->
+
+	<RelativeLayout android:id="@+id/arrow_view"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content" >
+	    
+	</RelativeLayout>
+
+<!-- End Compass -->
+
+<!-- ****************************************************************************************** -->
+
+	<View 
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/main_divider_size_large"
+	    android:background="#575757" />
+	
+<!-- ****************************************************************************************** -->
 	
 <!-- Gyroscope -->
     
