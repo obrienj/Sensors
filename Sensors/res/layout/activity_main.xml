@@ -266,6 +266,12 @@
 
 <!-- Compass -->
 
+	<ImageView android:id="@+id/arrow_view"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:scaleX="80"
+	    android:scaleY="80" />
+
 <!-- End Compass -->
 
 <!-- **************************************************************************************************** -->
