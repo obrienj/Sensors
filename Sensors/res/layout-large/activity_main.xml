@@ -252,22 +252,27 @@
 	
 <!-- End Ambient Light -->
 
-<!-- ****************************************************************************************** -->
+<!-- **************************************************************************************************** -->
 
 	<View 
 	    android:layout_width="match_parent"
-	    android:layout_height="@dimen/main_divider_size_large"
+	    android:layout_height="@dimen/main_divider_size"
 	    android:background="#575757" />
 	
-<!-- ****************************************************************************************** -->
+<!-- **************************************************************************************************** -->
 
 <!-- Compass -->
 
-	<RelativeLayout android:id="@+id/arrow_view"
-    	android:layout_width="match_parent"
-    	android:layout_height="wrap_content" >
-	    
-	</RelativeLayout>
+	<Button android:id="@+id/compass_button"
+	    android:text=" Compass "
+	    android:textSize="@dimen/description_text_size_large"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_horizontal"
+	    android:paddingTop="20dp"
+	    android:paddingBottom="20dp"
+	    android:clickable="true"
+	    android:onClick="goToCompass"/>
 
 <!-- End Compass -->
 

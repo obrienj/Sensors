@@ -1,12 +1,24 @@
-package com.josh.sensors;
+package com.josh.SensorReader;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
+
+import com.josh.SensorReader.Sensors.Accelerometer;
+import com.josh.SensorReader.Sensors.AmbientLight;
+import com.josh.SensorReader.Sensors.AmbientTemperature;
+import com.josh.SensorReader.Sensors.Gyroscope;
+import com.josh.SensorReader.Sensors.GyroscopeUncalibrated;
+import com.josh.SensorReader.Sensors.LinearAcceleration;
+import com.josh.SensorReader.Sensors.MagneticField;
+import com.josh.SensorReader.Sensors.MagneticFieldUncalibrated;
+import com.josh.SensorReader.Sensors.Pressure;
+import com.josh.sensors.R;
 
 public class MainActivity extends Activity implements SensorEventListener {
 	
@@ -27,7 +39,6 @@ public class MainActivity extends Activity implements SensorEventListener {
 	private Accelerometer 				accelerometerObj;
 	private LinearAcceleration 			linearAccelerationObj;
 	private AmbientLight 				ambientLightObj;
-//	private Compass						compassObj;
 	private Gyroscope					gyroscopeObj;
 	private GyroscopeUncalibrated		gyroscopeUncalibObj;
 	private MagneticField 				magneticFieldObj;
@@ -73,9 +84,6 @@ public class MainActivity extends Activity implements SensorEventListener {
 		ambientLightObj = new AmbientLight(this, this);
 		ambientLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 		
-		// Compass
-	//	compassObj = new Compass(this, this);
-		
 		// Gyroscope
 		gyroscopeObj = new Gyroscope(this, this);
 		gyroscope = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
@@ -114,9 +122,7 @@ public class MainActivity extends Activity implements SensorEventListener {
 
 			if (actualTime - mLastUpdateAccel > UPDATE_THRESHOLD) {
 				mLastUpdateAccel = actualTime;
-				accelerometerObj.changeAccelerometerValues(event);	
-				
-			//	compassObj.changeCompassValues(event);
+				accelerometerObj.changeAccelerometerValues(event);
 			}
 		}
 		
@@ -162,8 +168,6 @@ public class MainActivity extends Activity implements SensorEventListener {
 			if (actualTime - mLastUpdateMagneticField > UPDATE_THRESHOLD) {
 				mLastUpdateMagneticField = actualTime;
 				magneticFieldObj.changeMagneticFieldValues(event);
-				
-	//			compassObj.changeCompassValues(event);
 			}
 		}
 		
@@ -204,21 +208,33 @@ public class MainActivity extends Activity implements SensorEventListener {
 
 /****************************************************************************************************/
 	
+	// Accelerometer
 	public void changeUnitsAccel(View v) {
 		
 		accelerometerObj.changeUnitsAccelerometer();
 	}
 	
+	// Linear Acceleration
 	public void changeUnitsLinearAccel(View v) {
 		
 		linearAccelerationObj.changeUnitsLinearAcceleration();
 	}
 	
+	// AmbientLight
 	public void changeUnitsAmbientLight(View v) {
 		
 		ambientLightObj.changeUnitsAmbientLightSensor();
 	}
 	
+	// Compass
+	public void goToCompass (View v) {
+		
+		Intent intent = new Intent(this, Compass.class);
+		startActivity(intent);
+		
+	}
+	
+	// Gyroscope
 	public void changeUnitsGyroscope(View v) {
 		
 		gyroscopeObj.changeUnitsGyroscope();
@@ -322,7 +338,6 @@ public class MainActivity extends Activity implements SensorEventListener {
 		accelerometerObj.unregister();
 		linearAccelerationObj.unregister();
 		ambientLightObj.unregister();
-//		compassObj.unregister();
 		gyroscopeObj.unregister();
 		gyroscopeUncalibObj.unregister();
 		magneticFieldObj.unregister();

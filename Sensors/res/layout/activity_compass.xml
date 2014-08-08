@@ -1,0 +1,14 @@
+<!-- 
+
+Written by: Adam Porter
+https://github.com/aporter/coursera-android/blob/master/Examples/SensorCompass/res/layout/activity_main.xml
+
+ -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff"
+    android:id="@+id/frame" > 
+
+</RelativeLayout>

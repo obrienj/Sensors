@@ -266,12 +266,16 @@
 
 <!-- Compass -->
 
-	<ImageView android:id="@+id/arrow_view"
+	<Button android:id="@+id/compass_button"
+	    android:text=" Compass "
+	    android:textSize="@dimen/description_text_size"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:paddingLeft="20dp"
-	    android:scaleX="80"
-	    android:scaleY="80" />
+	    android:layout_gravity="center_horizontal"
+	    android:paddingTop="15dp"
+	    android:paddingBottom="15dp"
+	    android:clickable="true"
+	    android:onClick="goToCompass"/>
 
 <!-- End Compass -->
 

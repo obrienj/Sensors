@@ -1,4 +1,7 @@
-package com.josh.sensors;
+package com.josh.SensorReader.Sensors;
+
+import com.josh.SensorReader.MainActivity;
+import com.josh.sensors.R;
 
 import android.app.Activity;
 import android.content.Context;

@@ -1,4 +1,7 @@
-package com.josh.sensors;
+package com.josh.SensorReader.Sensors;
+
+import com.josh.SensorReader.MainActivity;
+import com.josh.sensors.R;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,19 +12,19 @@ import android.hardware.SensorManager;
 import android.view.View;
 import android.widget.TextView;
 
-public class Pressure implements SensorEventListener {
+public class AmbientTemperature implements SensorEventListener {
 	
 	private SensorManager mSensorManager;
-	private Sensor 		pressureSensor;
+	private Sensor 		ambientTemperatureSensor;
 	
 	// TextView for Light Sensor value and units
-	public TextView		pressureSensorVal, pressureSensorUnit;
+	public TextView		temperatureSensorVal, temperatureSensorUnit;
 	
 	// Variable to change value to match units
-	private double		pressureConvertUnit;
+	private double		temperatureMultiUnit, temperatureAddUnit;
 	
 	// Variable to store measurement units
-	private String		pressureUnit;
+	private String		temperatureUnit;
 	
 	private Activity	activity;
 	private Context		context;
@@ -30,52 +33,43 @@ public class Pressure implements SensorEventListener {
 	
 	// Used to create AmbientLight object and pass the activity and context
 	// from MainActivity to use findViewById and SENSOR_SERVICE
-	public Pressure(Activity mActivity, Context mContext) {
+	public AmbientTemperature(Activity mActivity, Context mContext) {
 		
 		this.activity = mActivity;
 		this.context = mContext;
 		
 		mSensorManager = (SensorManager) context.getSystemService(android.content.Context.SENSOR_SERVICE);
-		pressureSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
+		ambientTemperatureSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
 		
-		pressureSensorVal = (TextView) this.activity.findViewById(R.id.pressure_sensor);
-		pressureSensorUnit = (TextView) this.activity.findViewById(R.id.pressure_sensor_unit);
+		temperatureSensorVal = (TextView) this.activity.findViewById(R.id.temperature_sensor);
+		temperatureSensorUnit = (TextView) this.activity.findViewById(R.id.temperature_sensor_unit);
 		
-		pressureConvertUnit = 1;
-		pressureUnit = "hPa";
+		temperatureMultiUnit = 1;
+		temperatureAddUnit = 0;
+		temperatureUnit = "C";
 	}
 
 /****************************************************************************************************/
 	
-	public void changePressureValues(SensorEvent event){
+	public void changeAmbientTemperatureValues(SensorEvent event){
 		
-		pressureSensorVal.setText(" Pressure = " + (event.values[0] * pressureConvertUnit));
-		pressureSensorUnit.setText(pressureUnit);
+		temperatureSensorVal.setText(" Temperature = " + ((event.values[0] * temperatureMultiUnit) + temperatureAddUnit));
+		temperatureSensorUnit.setText(temperatureUnit);
 	}
 	
 /****************************************************************************************************/
 
-	public void changeUnitsPressureSensor() {
+	public void changeUnitsAmbientTemperatureSensor() {
 		
-		if (pressureUnit == "hPa") {
-			pressureUnit = "Pa";
-			pressureConvertUnit = 100;
+		if (temperatureUnit == "C") {
+			temperatureUnit = "F";
+			temperatureMultiUnit = (9 / 5);
+			temperatureAddUnit = 32;
 			
-		} else if (pressureUnit == "Pa") {
-			pressureUnit = "Torr";
-			pressureConvertUnit = 0.7500616827042;
-			
-		} else if (pressureUnit == "Torr") {
-			pressureUnit = "atm";
-			pressureConvertUnit = 0.000986923266716;
-			
-		} else if (pressureUnit == "atm") {
-			pressureUnit = "psi";
-			pressureConvertUnit = 0.01450378911491;
-			
-		} else if (pressureUnit == "psi") {
-			pressureUnit = "hPa";
-			pressureConvertUnit = 1;
+		} else if (temperatureUnit == "F") {
+			temperatureUnit = "C";
+			temperatureMultiUnit = 1;
+			temperatureAddUnit = 0;
 		}
 	}
 
@@ -84,14 +78,14 @@ public class Pressure implements SensorEventListener {
 	public boolean isAvailable() {
 		
 		// Checks if the Ambient Light sensor is available or not
-		if (pressureSensor == null) {
+		if (ambientTemperatureSensor == null) {
 					
-			TextView pressureNotAvailable = (TextView) this.activity.findViewById(R.id.pressure_not_available);
-			pressureNotAvailable.setVisibility(View.VISIBLE);
-			pressureNotAvailable.setText(MainActivity.SENSOR_NOT_AVAILABLE);
+			TextView ambientLightNotAvailable = (TextView) this.activity.findViewById(R.id.temperature_not_available);
+			ambientLightNotAvailable.setVisibility(View.VISIBLE);
+			ambientLightNotAvailable.setText(MainActivity.SENSOR_NOT_AVAILABLE);
 					
-			pressureSensorVal.setVisibility(View.GONE);
-			pressureSensorUnit.setVisibility(View.GONE);
+			temperatureSensorVal.setVisibility(View.GONE);
+			temperatureSensorUnit.setVisibility(View.GONE);
 					
 			return false;
 				

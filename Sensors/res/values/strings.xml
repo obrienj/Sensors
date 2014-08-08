@@ -4,58 +4,54 @@
     <string name="app_name">Sensors</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    
+
     <!-- Accelerometer, gravity -->
     <string name="accelerometer_title">Accelerometer</string>
     <string name="accelerometer_description">Acceleration force on each axis, including gravity</string>
     <string name="accelerometer_onClick">changeUnitsAccel</string>
-    
+
     <!-- Accelerometer, no gravity -->
     <string name="linear_acceleration_description">Acceleration force on each axis, excluding gravity</string>
     <string name="linear_acceleration_onClick">changeUnitsLinearAccel</string>
-    
+
     <!-- Ambient Light -->
     <string name="ambient_light_title">Ambient Light</string>
     <string name="ambient_light_description">Illuminance</string>
     <string name="ambient_light_onClick">changeUnitsAmbientLight</string>
-    
+
     <!-- Gyroscope -->
     <string name="gyroscope_title">Gyroscope</string>
     <string name="gyroscope_description">Measured rate of rotation around each axis</string>
     <string name="gyroscope_onClick">changeUnitsGyroscope</string>
-    
     <string name="gyroscope_uncalibrated_description">Measured rate of rotation around axis, without drift compensation</string>
     <string name="gyroscope_uncalibrated_onClick">changeUnitsGyroscopeUncalibrated</string>
-    
     <string name="gyroscope_drift_description">Estimated drift around each axis</string>
     <string name="gyroscope_drift_onClick">changeUnitsGyroscopeDrift</string>
-    
+
     <!-- Magnetic_Field -->
     <string name="magnetic_field_title">Magnetic Field</string>
     <string name="magnetic_field_description">Measure the ambient magnetic field in each axis</string>
     <string name="magnetic_field_onClick">changeUnitsMagneticField</string>
-    
     <string name="magnetic_field_uncalibrated_description">Ambient magnetic field in each axis, without hard iron calibration</string>
     <string name="magnetic_field_uncalibrated_onClick">changeUnitsMagneticFieldUncalibrated</string>
-    
     <string name="magnetic_field_bias_description">Hard iron bias estimation</string>
     <string name="magnetic_field_bias_onClick">changeUnitsMagneticFieldBias</string>
-    
-     <!-- Pressure -->
+
+    <!-- Pressure -->
     <string name="pressure_title">Pressure</string>
     <string name="pressure_description">Atmospheric Pressure</string>
     <string name="pressure_onClick">changeUnitsPressure</string>
-    
+
     <!-- Temperature -->
     <string name="temperature_title">Temperature</string>
     <string name="temperature_description">Ambient Temperature</string>
     <string name="temperature_onClick">changeUnitsTemperature</string>
-        
+
     <!-- Set weight of Values and Units -->
     <string name="weight_value">4</string>
     <string name="weight_unit">2</string>
-    
     <string name="weight_value_large">3</string>
     <string name="weight_unit_large">2</string>
+    <string name="title_activity_compass">Compass</string>
 
 </resources>
